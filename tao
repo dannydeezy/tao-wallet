@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+const prog = require('caporal')
+const deposit = require('./src/deposit')
+const balance = require('./src/balance')
+const swap = require('./src/swap')
+prog
+  .version('1.0.0')
+  // you specify arguments using .argument()
+  // 'app' is required, 'env' is optional
+  .command('deposit', 'Deposit funds')
+  .argument('[type]', 'Type of deposit', /^lightning|on-chain|lnurl$/, 'on-chain')
+  .option('--amount <amount>', 'Amount to deposit', prog.INT, 0)
+  .action(async function(args, options, logger) {
+    await deposit.execute({ args, options, logger })
+  })
+  .command('balance', 'Get account balance')
+  .action(async function (args, options, logger) {
+    await balance.execute({ args, options, logger })
+  })
+  .command('swap', 'Swap between BTC and USD')
+  .option('--from <from>', 'Currency to swap from', /^btc|usd$/, 'btc')
+  .option('--to <to>', 'Currency to swap to', /^btc|usd$/, 'usd')
+  .option('--amount <amount>', 'Amount to swap (in sats for btc, or usd for usd)', prog.INT, 0)
+  .action(async function(args, options, logger) {
+    await swap.execute({ args, options, logger })
+  })
+ 
+prog.parse(process.argv)
