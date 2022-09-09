@@ -19,7 +19,7 @@ async function go() {
     await tao.login()
 
     // Create an invoice to deposit funds (amount in sats).
-    const depositInvoice = await tao.fetchDepositAddress({ type: 'lightning', amount: 1000000 })
+    const depositInvoice = await tao.fetchDepositAddress({ type: 'bolt11', amountSats: 1000000 })
     console.log(depositInvoice)
 
     // Create an on-chain address to deposit funds.
