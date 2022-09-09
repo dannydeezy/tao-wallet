@@ -1,2 +1,2 @@
 # tao-wallet
-USD wallet for anyone
+usd/btc wallet for everyone
