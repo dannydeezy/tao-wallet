@@ -22,7 +22,6 @@ async function send({ type, address, amountSats, lnmarkets }) {
             console.log(err.response.data)
             return null
         })
-        console.log(`Got response from deezy`)
         if (!response) return
         const { bolt11_invoice } = response.data
         await lnmarkets.withdraw({ invoice: bolt11_invoice })
