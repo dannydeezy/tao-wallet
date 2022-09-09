@@ -1,16 +1,16 @@
-async function fetchDepositAddress({ type, amount, lnmarkets }) {
+async function fetchDepositAddress({ type, amountSats, lnmarkets }) {
 
-    if (type === 'lightning') {
-        if (!amount) {
-            throw new Error('amount is required and cannot be 0\n')
+    if (type === 'bolt11') {
+        if (!amountSats) {
+            throw new Error('amountSats is required and cannot be 0\n')
         }
-        const { paymentRequest } = await lnmarkets.deposit({ amount })
+        const { paymentRequest } = await lnmarkets.deposit({ amount: amountSats })
         return paymentRequest
     }
 
     if (type === 'on-chain') {
-        if (amount) {
-            throw new Error('cannot set amount for on-chain deposit')
+        if (amountSats) {
+            throw new Error('cannot set amountSats for on-chain deposit')
         }
         const { address } = await lnmarkets.getUser()
         return address

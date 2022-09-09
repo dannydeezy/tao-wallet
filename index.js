@@ -20,8 +20,8 @@ class TaoWallet {
         })
     }
 
-    async fetchDepositAddress({ type, amount }) {
-        return deposit.fetchDepositAddress({ type, amount, lnmarkets: this.lnmarkets })
+    async fetchDepositAddress({ type, amountSats }) {
+        return deposit.fetchDepositAddress({ type, amountSats, lnmarkets: this.lnmarkets })
     }
 
     async fetchBalances() {
