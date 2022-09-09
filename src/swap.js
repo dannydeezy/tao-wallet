@@ -1,21 +1,18 @@
-const { lnmarkets } = require('./lnmarkets')
-const { getBalances } = require('./balance')
-
-async function execute({ args, options }) {
-    if (options.from === 'usd' && options.to === 'btc') {
-        console.log(`Swapping ${options.amountUsd} usd to btc`)
-        await swapUsdToBtc({ amountUsd: options.amountUsd })
+async function swap({ from, to, amountUsd, lnmarkets }) {
+    if (from === 'usd' && to === 'btc') {
+        console.log(`Swapping ${amountUsd} usd to btc`)
+        await swapUsdToBtc({ amountUsd, lnmarkets })
         return
     }
 
-    if (options.from === 'btc' && options.to === 'usd') {
-        console.log(`Swapping btc for ${options.amountUsd} usd`)
-        await swapBtcToUsd({ amountUsd: options.amountUsd })
+    if (from === 'btc' && to === 'usd') {
+        console.log(`Swapping btc for ${amountUsd} usd`)
+        await swapBtcToUsd({ amountUsd, lnmarkets })
         return
     }
 }
 
-async function swapBtcToUsd({ amountUsd }) {
+async function swapBtcToUsd({ amountUsd, lnmarkets }) {
     await lnmarkets.futuresNewPosition({
         type: 'm',
         side: 's',
@@ -24,7 +21,7 @@ async function swapBtcToUsd({ amountUsd }) {
     })
 }
 
-async function swapUsdToBtc({ amountUsd }) {
+async function swapUsdToBtc({ amountUsd, lnmarkets }) {
     const positions = await lnmarkets.futuresGetPositions({ type: 'running' })
     // Sort by ascending.
     const liveShorts = positions.filter(p => p.side === 's').sort((a, b) => a.quantity - b.quantity)
@@ -50,4 +47,4 @@ async function swapUsdToBtc({ amountUsd }) {
     })
 }
 
-module.exports = { execute }
+module.exports = { swap }
