@@ -15,12 +15,13 @@ prog
   })
   .command('balance', 'Get account balance')
   .action(async function (args, options, logger) {
-    await balance.execute({ args, options, logger })
+    const balances = await balance.getBalances({ args, options, logger })
+    console.log(balances)
   })
   .command('swap', 'Swap between BTC and USD')
   .option('--from <from>', 'Currency to swap from', /^btc|usd$/, 'btc')
   .option('--to <to>', 'Currency to swap to', /^btc|usd$/, 'usd')
-  .option('--amount <amount>', 'Amount to swap (in sats for btc, or usd for usd)', prog.INT, 0)
+  .option('--amount_usd <amount_usd>', 'Amount to swap (in usd)', prog.INT, 0)
   .action(async function(args, options, logger) {
     await swap.execute({ args, options, logger })
   })
