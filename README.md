@@ -1,5 +1,5 @@
 # tao-wallet
-usd/btc wallet for everyone
+usd/btc wallet for everyone. send and receive btc. swap to usd. hodl. coming soon: auto-balancing :)
 
 ### install
 ```
