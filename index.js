@@ -7,6 +7,8 @@ const send = require('./src/send')
 class TaoWallet {
 
     constructor({ lnmSecret, network = 'testnet'}) {
+        // Currently LnMarkets is the only example custody option. In the future I hope to
+        // have a wide range of options included fully self-custodial options.
         this.lnmSecret = lnmSecret
         this.network = network
     }
