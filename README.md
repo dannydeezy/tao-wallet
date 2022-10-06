@@ -1,5 +1,9 @@
 # tao-wallet
-wallet for everyone. send and receive. btc and usd. hodl. coming soon: auto-balancing :)
+wallet for everyone. send and receive. btc, usd, and more.
+
+self custodial or yield-generating full custody, choose your own adventure
+
+work in progress, looking for teammates!
 
 ### install
 ```
