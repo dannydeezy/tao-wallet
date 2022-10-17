@@ -1,4 +1,5 @@
 # tao-wallet
+
 wallet for everyone. send and receive. btc, usd, and more.
 
 self custodial or yield-generating full custody, choose your own adventure
@@ -6,10 +7,13 @@ self custodial or yield-generating full custody, choose your own adventure
 work in progress, looking for teammates!
 
 ### install
+
 ```
 npm i tao-wallet
 ```
+
 ### usage
+
 ```
 const TaoWallet = require('tao-wallet')
 
@@ -54,7 +58,7 @@ go()
 ```
 
 ### community
+
 twitter: [@taowallet](https://twitter.com/taowallet)
 
 discord: https://discord.gg/nmTNNtGgKK
-

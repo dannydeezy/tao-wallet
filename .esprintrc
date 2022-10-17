@@ -1,0 +1,10 @@
+{
+	"maxWarnings": 0,
+	"paths": [
+		"./**/*.ts"
+	],
+	"ignored": [
+		"./dist/**/*",
+		"./node_modules/**/*"
+	]
+}
