@@ -2,9 +2,15 @@
   "name": "tao-wallet",
   "version": "2.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
+  "type": "module",
+  "imports": {
+    "#src/*": "./src/*"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write",
+    "format": "prettier --write 'src/**/*.js''"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +20,8 @@
     "axios": "0.27.2",
     "bech32": "2.0.0",
     "secp256k1": "4.0.3"
+  },
+  "devDependencies": {
+    "prettier": "2.7.1"
   }
 }
