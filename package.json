@@ -2,17 +2,46 @@
   "name": "tao-wallet",
   "version": "2.0.1",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannydeezy/tao-wallet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dannydeezy/tao-wallet/issues"
+  },
+  "homepage": "https://github.com/dannydeezy/tao-wallet#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    "import": "./src/index.js"
+  },
+  "imports": {
+    "#src/*": "./src/*"
+  },
+  "files": [
+    "/src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write",
+    "format": "prettier --write 'src/**/*.js''"
+  },
   "dependencies": {
-    "@ln-markets/api": "^1.7.0",
-    "axios": "^0.27.2",
-    "bech32": "^2.0.0",
-    "secp256k1": "^4.0.3"
+    "@ln-markets/api": "1.7.0",
+    "axios": "0.27.2",
+    "bech32": "2.0.0",
+    "secp256k1": "4.0.3"
+  },
+  "devDependencies": {
+    "prettier": "2.7.1"
   }
 }
