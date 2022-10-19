@@ -12,7 +12,6 @@
 		"baseUrl": ".",
 		"outDir": "dist",
 		"declaration": true,
-		"lib": ["dom", "dom.iterable"],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"esModuleInterop": true,
