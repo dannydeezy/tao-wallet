@@ -15,8 +15,8 @@ npm i tao-wallet
 ### usage
 
 ```javascript
+import { randomBytes } from 'crypto'
 import { TaoWallet } from 'tao-wallet'
-import { randomBytes } from 'node:crypto'
 
 // On first usage, generate a secret for the backend LnMarkets account.
 const lnmSecret = randomBytes(16).toString('hex')
@@ -28,8 +28,8 @@ await tao.login()
 
 // Create an invoice to deposit funds (amount in sats).
 const depositInvoice = await tao.fetchDepositAddress({
-  type: 'bolt11',
-  amountSats: 1000000,
+	type: 'bolt11',
+	amountSats: 1000000,
 })
 console.log(depositInvoice)
 
@@ -54,9 +54,9 @@ await tao.send({ type: 'bolt11', address: invoice })
 // Send 100,000 sats from your tao wallet to an on-chain address.
 const onchainAddress = 'bc1...'
 await tao.send({
-  type: 'on-chain',
-  address: onchainAddress,
-  amountSats: 100000,
+	type: 'on-chain',
+	address: onchainAddress,
+	amountSats: 100000,
 })
 ```
 

@@ -1,47 +1,45 @@
 {
-  "name": "tao-wallet",
-  "version": "2.0.1",
-  "description": "",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dannydeezy/tao-wallet.git"
-  },
-  "bugs": {
-    "url": "https://github.com/dannydeezy/tao-wallet/issues"
-  },
-  "homepage": "https://github.com/dannydeezy/tao-wallet#readme",
-  "publishConfig": {
-    "access": "public"
-  },
-  "engines": {
-    "node": ">=14"
-  },
-  "type": "module",
-  "main": "./src/index.js",
-  "exports": {
-    "import": "./src/index.js"
-  },
-  "imports": {
-    "#src/*": "./src/*"
-  },
-  "files": [
-    "/src"
-  ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier --write",
-    "format": "prettier --write 'src/**/*.js''"
-  },
-  "dependencies": {
-    "@ln-markets/api": "1.7.0",
-    "axios": "0.27.2",
-    "bech32": "2.0.0",
-    "secp256k1": "4.0.3"
-  },
-  "devDependencies": {
-    "prettier": "2.7.1"
-  }
+	"name": "tao-wallet",
+	"version": "2.0.1",
+	"description": "",
+	"scripts": {
+		"lint": "npm run lint:eslint && npm run lint:prettier",
+		"lint:fix": "npm run lint:eslint:fix && npm run lint:prettier:fix",
+		"lint:prettier": "prettier --check .",
+		"lint:prettier:fix": "prettier --write .",
+		"lint:eslint": "esprint check",
+		"lint:eslint:fix": "esprint check --fix",
+		"build": "npm run build:clean && npm run build:bundle",
+		"build:clean": "rm -rf dist/*",
+		"build:bundle": "tsc",
+		"prepublish": "npm run lint && npm run build",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"files": [
+		"dist/**"
+	],
+	"module": "src/index.js",
+	"main": "src/index.js",
+	"types": "src/index.d.ts",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@ln-markets/api": "^1.7.0",
+		"bech32": "^2.0.0",
+		"secp256k1": "^4.0.3"
+	},
+	"devDependencies": {
+		"@trivago/prettier-plugin-sort-imports": "^3.3.1",
+		"@types/secp256k1": "^4.0.3",
+		"@typescript-eslint/eslint-plugin": "^5.40.0",
+		"@typescript-eslint/parser": "^5.40.0",
+		"eslint": "^8.25.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-jest": "^27.1.2",
+		"esprint": "^3.6.0",
+		"prettier": "^2.7.1",
+		"tslib": "^2.4.0",
+		"typescript": "^4.8.4"
+	}
 }

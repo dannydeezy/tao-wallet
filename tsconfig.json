@@ -1,0 +1,41 @@
+{
+	"include": [
+		"./example",
+		"./src",
+		"./tests",
+		"./package.json",
+		"./package-lock.json",
+		"./tsconfig.json"
+	],
+	"exclude": ["./coverage", "./dist", "./tsconfig.json"],
+	"compilerOptions": {
+		"typeRoots": ["./node_modules/@types", "./src/typed"],
+		"baseUrl": ".",
+		"outDir": "dist",
+		"declaration": true,
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"alwaysStrict": true,
+		"strict": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"strictBindCallApply": true,
+		"strictPropertyInitialization": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noUncheckedIndexedAccess": true,
+		"forceConsistentCasingInFileNames": true,
+		"target": "es6",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"sourceMap": true
+	}
+}
