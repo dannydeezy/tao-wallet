@@ -16,7 +16,7 @@ export default class TaoWallet {
 		network = 'testnet',
 	}: {
 		lnmSecret: string
-		network: Network
+		network?: Network
 	}) {
 		// Currently LnMarkets is the only example custody option. In the future I hope to
 		// have a wide range of options included fully self-custodial options.

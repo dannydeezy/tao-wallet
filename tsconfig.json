@@ -1,5 +1,6 @@
 {
 	"include": [
+		"./example",
 		"./src",
 		"./tests",
 		"./package.json",
