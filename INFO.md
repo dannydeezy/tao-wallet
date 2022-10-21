@@ -6,7 +6,7 @@
 - [Dependencies](#dependencies)
 - [Developer Onboarding](#developer-onboarding)
 - [Quick start](#quick-start)
-- [Usage](USAGE.md)
+- [Usage](README.md)
 
 ## Helpful Docs
 
