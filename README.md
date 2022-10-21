@@ -67,4 +67,5 @@ await tao.send({
 })
 ```
 
-[More Info](INFO.md)
+## More Info
+[Architecture, Contributing, Releases, etc](INFO.md)
