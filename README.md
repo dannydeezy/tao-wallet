@@ -12,53 +12,59 @@ Self custodial or yield-generating full custody, choose your own adventure.
 
 Work in progress, looking for teammates!
 
-## Table Of Contents
 
-- [Helpful Docs](#helpful-docs)
-- [Resources](#resources)
-- [Dependencies](#dependencies)
-- [Developer Onboarding](#developer-onboarding)
-- [Quick start](#quick-start)
-- [Usage](USAGE.md)
+# Usage
 
-## Helpful Docs
-
-- [Architecture](docs/architecture.md)
-- [Styles](docs/styles.md)
-- [Testing](docs/testing.md)
-- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
-
-
-## Resources
-
-- [tao-wallet](https://github.com/dannydeezy/tao-wallet/projects?query=is%3Aopen)
-
-## Dependencies
-- [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) (optional; must be installed manually)
-
-## Quick Start
-
-- Clone the repo
-
-- Make sure you are using NodeJS@19.0.0, you can use nvm to change version [dependencies](#dependencies)
-
-- Install dependencies
-
+## Install as dependency
 ```sh
-npm i
+npm i tao-wallet
 ```
 
-## Developer Onboarding
+## Usage
+```javascript
+import { randomBytes } from 'crypto'
+import { TaoWallet } from 'tao-wallet'
 
-1. Create a pull request on GitHub. (`https://github.com/<username>/<fork name>/pull/new/<branch name>`.)
-2. Ensure you've followed the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md).
-3. Post a link to your new pull request in `#dev` in the [Discord](https://discord.gg/nmTNNtGgKK)
-4. (optional) Return to the `main` branch to get ready to start another task.
+// On first usage, generate a secret for the backend LnMarkets account.
+const lnmSecret = randomBytes(16).toString('hex')
 
-See the [contribution guidelines](CONTRIBUTIONS.md)
-if you'd like to contribute to the project.
-## Releases
+const tao = new TaoWallet({ lnmSecret, network: 'mainnet' })
 
-The command `tbd` helps to automate the release process.
+// Login.
+await tao.login()
 
-Run the command and follow the prompts.
+// Create an invoice to deposit funds (amount in sats).
+const depositInvoice = await tao.fetchDepositAddress({
+	type: 'bolt11',
+	amountSats: 1000000,
+})
+console.log(depositInvoice)
+
+// Create an on-chain address to deposit funds.
+const depositAddress = await tao.fetchDepositAddress({ type: 'on-chain' })
+console.log(depositAddress)
+
+// Get balances.
+const balances = await tao.fetchBalances()
+console.log(balances)
+
+// Swap btc for $2 of usd.
+await tao.swap({ from: 'btc', to: 'usd', amountUsd: 2 })
+
+// Swap $1 of usd for btc.
+await tao.swap({ from: 'usd', to: 'btc', amountUsd: 1 })
+
+// Send funds from your tao wallet to a lightning invoice.
+const invoice = 'lnbc1....'
+await tao.send({ type: 'bolt11', address: invoice })
+
+// Send 100,000 sats from your tao wallet to an on-chain address.
+const onchainAddress = 'bc1...'
+await tao.send({
+	type: 'on-chain',
+	address: onchainAddress,
+	amountSats: 100000,
+})
+```
+
+[More Info](INFO.md)
