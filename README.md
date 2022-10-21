@@ -1,67 +1,64 @@
 # tao-wallet
 
-wallet for everyone. send and receive. btc, usd, and more.
+Wallet for everyone. send and receive. btc, usd, and more.
 
-self custodial or yield-generating full custody, choose your own adventure
+Self custodial or yield-generating full custody, choose your own adventure.
 
-work in progress, looking for teammates!
 
-### install
+[![Tao](https://img.shields.io/badge/License-MIT-brightgreen)](https://github.com/dannydeezy/tao-wallet/blob/main/LICENSE.md)
+[![ShapeShift](https://img.shields.io/discord/539606376339734558.svg?label=discord&logo=discord&logoColor=white)](https://discord.gg/nmTNNtGgKK)
+[![ShapeShift](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Ftaowallet)](https://twitter.com/taowallet)
 
-```
-npm i tao-wallet
-```
 
-### usage
+Work in progress, looking for teammates!
 
-```javascript
-import { randomBytes } from 'crypto'
-import { TaoWallet } from 'tao-wallet'
+## Table Of Contents
 
-// On first usage, generate a secret for the backend LnMarkets account.
-const lnmSecret = randomBytes(16).toString('hex')
+- [Helpful Docs](#helpful-docs)
+- [Resources](#resources)
+- [Dependencies](#dependencies)
+- [Developer Onboarding](#developer-onboarding)
+- [Quick start](#quick-start)
+- [Usage](USAGE.md)
 
-const tao = new TaoWallet({ lnmSecret, network: 'mainnet' })
+## Helpful Docs
 
-// Login.
-await tao.login()
+- [Architecture](docs/architecture.md)
+- [Styles](docs/styles.md)
+- [Testing](docs/testing.md)
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
-// Create an invoice to deposit funds (amount in sats).
-const depositInvoice = await tao.fetchDepositAddress({
-	type: 'bolt11',
-	amountSats: 1000000,
-})
-console.log(depositInvoice)
 
-// Create an on-chain address to deposit funds.
-const depositAddress = await tao.fetchDepositAddress({ type: 'on-chain' })
-console.log(depositAddress)
+## Resources
 
-// Get balances.
-const balances = await tao.fetchBalances()
-console.log(balances)
+- [tao-wallet](https://github.com/dannydeezy/tao-wallet/projects?query=is%3Aopen)
 
-// Swap btc for $2 of usd.
-await tao.swap({ from: 'btc', to: 'usd', amountUsd: 2 })
+## Dependencies
+- [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) (optional; must be installed manually)
 
-// Swap $1 of usd for btc.
-await tao.swap({ from: 'usd', to: 'btc', amountUsd: 1 })
+## Quick Start
 
-// Send funds from your tao wallet to a lightning invoice.
-const invoice = 'lnbc1....'
-await tao.send({ type: 'bolt11', address: invoice })
+- Clone the repo
 
-// Send 100,000 sats from your tao wallet to an on-chain address.
-const onchainAddress = 'bc1...'
-await tao.send({
-	type: 'on-chain',
-	address: onchainAddress,
-	amountSats: 100000,
-})
+- Make sure you are using NodeJS@19.0.0, you can use nvm to change version [dependencies](#dependencies)
+
+- Install dependencies
+
+```sh
+npm i
 ```
 
-### community
+## Developer Onboarding
 
-twitter: [@taowallet](https://twitter.com/taowallet)
+1. Create a pull request on GitHub. (`https://github.com/<username>/<fork name>/pull/new/<branch name>`.)
+2. Ensure you've followed the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md).
+3. Post a link to your new pull request in `#dev` in the [Discord](https://discord.gg/nmTNNtGgKK)
+4. (optional) Return to the `main` branch to get ready to start another task.
 
-discord: https://discord.gg/nmTNNtGgKK
+See the [contribution guidelines](CONTRIBUTIONS.md)
+if you'd like to contribute to the project.
+## Releases
+
+The command `tbd` helps to automate the release process.
+
+Run the command and follow the prompts.
