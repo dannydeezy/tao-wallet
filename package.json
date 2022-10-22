@@ -23,7 +23,7 @@
 	"types": "src/index.d.ts",
 	"keywords": [],
 	"author": "",
-	"license": "ISC",
+	"license": "MIT",
 	"dependencies": {
 		"@ln-markets/api": "^1.7.0",
 		"bech32": "^2.0.0",
