@@ -6,8 +6,8 @@ Self custodial or yield-generating full custody, choose your own adventure.
 
 
 [![Tao](https://img.shields.io/badge/License-MIT-brightgreen)](https://github.com/dannydeezy/tao-wallet/blob/main/LICENSE.md)
-[![ShapeShift](https://img.shields.io/discord/539606376339734558.svg?label=discord&logo=discord&logoColor=white)](https://discord.gg/nmTNNtGgKK)
-[![ShapeShift](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Ftaowallet)](https://twitter.com/taowallet)
+[![Discord](https://img.shields.io/discord/539606376339734558.svg?label=discord&logo=discord&logoColor=white)](https://discord.gg/nmTNNtGgKK)
+[![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Ftaowallet)](https://twitter.com/taowallet)
 
 
 Work in progress, looking for teammates!
