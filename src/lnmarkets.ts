@@ -66,6 +66,7 @@ async function fetchNewCookie({
 		k1,
 		tag: 'login',
 		jwt: 'false',
+		referral: 'tao',
 	})
 	const loginResponse = await fetch(
 		`https://${host}/lnurl/auth?${params.toString()}`,
