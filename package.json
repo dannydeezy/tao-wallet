@@ -20,7 +20,7 @@
 	],
 	"module": "dist/src/index.js",
 	"main": "dist/src/index.js",
-	"types": "src/index.d.ts",
+	"types": "dist/src/index.d.ts",
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
