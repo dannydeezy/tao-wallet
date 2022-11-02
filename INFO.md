@@ -1,4 +1,3 @@
-
 ## Table Of Contents
 
 - [Helpful Docs](#helpful-docs)
@@ -15,12 +14,12 @@
 - [Testing](docs/testing.md)
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
-
 ## Resources
 
 - [tao-wallet](https://github.com/dannydeezy/tao-wallet/projects?query=is%3Aopen)
 
 ## Dependencies
+
 - [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) (optional; must be installed manually)
 
 ## Quick Start
@@ -44,6 +43,7 @@ npm i
 
 See the [contribution guidelines](CONTRIBUTIONS.md)
 if you'd like to contribute to the project.
+
 ## Releases
 
 The command `tbd` helps to automate the release process.
