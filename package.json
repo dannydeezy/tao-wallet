@@ -1,6 +1,6 @@
 {
 	"name": "tao-wallet",
-	"version": "2.0.2",
+	"version": "2.0.3",
 	"description": "",
 	"scripts": {
 		"lint": "npm run lint:eslint && npm run lint:prettier",
