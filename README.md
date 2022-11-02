@@ -4,23 +4,22 @@ Wallet for everyone. send and receive. btc, usd, and more.
 
 Self custodial or yield-generating full custody, choose your own adventure.
 
-
 [![Tao](https://img.shields.io/badge/License-MIT-brightgreen)](https://github.com/dannydeezy/tao-wallet/blob/main/LICENSE.md)
 [![Discord](https://img.shields.io/discord/539606376339734558.svg?label=discord&logo=discord&logoColor=white)](https://discord.gg/nmTNNtGgKK)
 [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Ftaowallet)](https://twitter.com/taowallet)
 
-
 Work in progress, looking for teammates!
-
 
 # Usage
 
 ## Install as dependency
+
 ```sh
 npm i tao-wallet
 ```
 
 ## Usage
+
 ```javascript
 import { randomBytes } from 'crypto'
 import { TaoWallet } from 'tao-wallet'
@@ -68,4 +67,5 @@ await tao.send({
 ```
 
 ## More Info
+
 [Architecture, Contributing, Releases, etc](INFO.md)

@@ -22,7 +22,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 - Make sure your PR description clearly describes the problem that you've solving, and how this patch achieves that goal. Include a link to the relevant GitHub issue.
 
-- Changes that only fix whitespace / formatting will generally not be  accepted. Drive-by style fixes are fine when working on adjacent areas of the code, but please put them in a separate commit from functional changes.
+- Changes that only fix whitespace / formatting will generally not be accepted. Drive-by style fixes are fine when working on adjacent areas of the code, but please put them in a separate commit from functional changes.
 
 - Where possible, please provide unit tests / integration tests that demonstrate new functionality is working.
 
@@ -50,11 +50,11 @@ Use git flow principle for development
 
 ## CI/CD
 
-*TBD*
+_TBD_
 
 ### Tests
 
-*TBD*
+_TBD_
 
 ## Formatting your source code
 
@@ -79,6 +79,7 @@ You can check that your code is properly formatted and adheres to coding style b
 ```shell
 $ npm run lint
 ```
+
 ## Code of Conduct
 
 ### Our Pledge
@@ -153,4 +154,3 @@ available at [http://contributor-covenant.org/version/1/4][version]
 
 [homepage]: http://contributor-covenant.org
 [version]: http://contributor-covenant.org/version/1/4/
-
