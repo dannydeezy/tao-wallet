@@ -16,7 +16,7 @@
 		"test": "jest"
 	},
 	"files": [
-		"dist/**/*"
+		"dist/**"
 	],
 	"module": "dist/src/index.js",
 	"main": "dist/src/index.js",
