@@ -1,13 +1,4 @@
 {
-	"include": [
-		"./example",
-		"./src",
-		"./tests",
-		"./package.json",
-		"./package-lock.json",
-		"./tsconfig.json"
-	],
-	"exclude": ["./coverage", "./dist", "./tsconfig.json"],
 	"compilerOptions": {
 		"typeRoots": ["./node_modules/@types", "./src/typed"],
 		"baseUrl": ".",
@@ -31,8 +22,8 @@
 		"noUnusedParameters": true,
 		"noUncheckedIndexedAccess": true,
 		"forceConsistentCasingInFileNames": true,
-		"target": "es6",
-		"module": "esnext",
+		"target": "es5",
+		"module": "commonjs",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"isolatedModules": true,

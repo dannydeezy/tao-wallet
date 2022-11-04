@@ -1,3 +1,5 @@
+// eslint-disable-next-line spaced-comment
+/// <reference types="./typed/ln-markets-api" />
 import { LNMarketsRest, Network } from '@ln-markets/api'
 
 import * as balance from './balance'
