@@ -9,18 +9,18 @@
 		"lint:prettier:fix": "prettier --write .",
 		"lint:eslint": "esprint check",
 		"lint:eslint:fix": "esprint check --fix",
-		"build": "npm run build:clean && npm run build:bundle",
+		"build": "npm run build:clean && npm run build:src",
 		"build:clean": "rm -rf dist/*",
-		"build:bundle": "tsc",
+		"build:src": "tsc --project tsconfig.build.json && mkdir -p dist/src/typed && cp src/typed/ln-markets-api.d.ts dist/src/typed/ln-markets-api.d.ts",
 		"prepublish": "npm run lint && npm run build",
 		"test": "jest"
 	},
 	"files": [
 		"dist/**"
 	],
-	"module": "dist/src/index.js",
-	"main": "dist/src/index.js",
-	"types": "dist/src/index.d.ts",
+	"module": "src/index.js",
+	"main": "src/index.js",
+	"types": "src/index.d.ts",
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
