@@ -1,4 +1,5 @@
 import { LNMarketsRest } from '@ln-markets/api'
+import axios from 'axios'
 
 interface SendArgs {
 	type: 'bolt11' | 'on-chain'
@@ -21,26 +22,21 @@ export async function send({ type, address, amountSats, lnmarkets }: SendArgs) {
 		const url = `https://api${
 			lnmarkets.network === 'testnet' ? '-testnet' : ''
 		}.deezy.io/v1/swap`
-		const result = await fetch(url, {
-			method: 'post',
-			body: JSON.stringify({
+	
+		await axios
+			.post<{ bolt11_invoice: string }>(url, {
 				amount_sats: amountSats,
 				on_chain_address: address,
 				on_chain_sats_per_vbyte: 1, // TODO: realtime estimate
-			}),
-		})
-			.then(response => response.json() as Promise<{ bolt11_invoice: string }>)
-			.catch(err => {
-				console.log(err)
-				return null
 			})
-
-		if (result == null) {
-			return
-		}
-
-		const { bolt11_invoice } = result
-		await lnmarkets.withdraw({ invoice: bolt11_invoice })
-		return
+			.then(async ({ data }) => {
+				await lnmarkets.withdraw({ invoice: data.bolt11_invoice })
+			})
+			.catch((err) => {
+				if(axios.isAxiosError(err)) {
+					// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+					throw Error(err.response?.data)
+				}
+			})
 	}
 }
